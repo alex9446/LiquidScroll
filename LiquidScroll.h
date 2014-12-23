@@ -6,15 +6,8 @@
 #include <LiquidCrystal.h>
 
 class LiquidScroll {
-  private:
-    String memText = "";
-    char fixText[17] = "";
-    int textPos = 0;
-    int linePos = 0;
-    void printText(LiquidCrystal lcd);
-    void splitChar(String text, int pos);
-  
   public:
+    LiquidScroll();
     // Without print
     void setText(char text[]);
     void setText(int numb);
@@ -53,6 +46,13 @@ class LiquidScroll {
     void commit(LiquidCrystal lcd);
     void sleepScrollLeft(byte numb, int tSleep, LiquidCrystal lcd);
     void sleepScrollRight(byte numb, int tSleep, LiquidCrystal lcd);
+  private:
+    String memText;
+    char fixText[17];
+    int textPos;
+    int linePos;
+    void printText(LiquidCrystal lcd);
+    void splitChar(String text, int pos);
 };
 
 #endif

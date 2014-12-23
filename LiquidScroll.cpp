@@ -3,6 +3,15 @@
 #include "LiquidScroll.h"
 
 
+LiquidScroll::LiquidScroll() {
+  memText = "";
+  for(byte i; i<16; i++) {
+    fixText[i] = ' ';
+  }
+  textPos = 0;
+  linePos = 0;
+}
+
 void LiquidScroll::printText(LiquidCrystal lcd) {
   for(int i=0; i<16; i++) {
     if((fixText[i] = memText.charAt(textPos+i)) == NULL) {
