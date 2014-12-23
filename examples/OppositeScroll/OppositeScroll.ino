@@ -1,6 +1,6 @@
 // include the library code:
 #include <LiquidCrystal.h>
-#include "LiquidScroll.h"
+#include <LiquidScroll.h>
 
 // initialize the library with the numbers of the interface pins
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
@@ -27,15 +27,15 @@ void setup() {
 void loop() {
   
   if(toRight) {
-    line_1.scrollLeft(lcd);
-    line_2.scrollRight(lcd);
-  } else {
     line_1.scrollRight(lcd);
     line_2.scrollLeft(lcd);
+  } else {
+    line_1.scrollLeft(lcd);
+    line_2.scrollRight(lcd);
   }
   scroll++;
   
-  if(scroll = 9) {
+  if(scroll > 8) {
     scroll = 0;
     if(toRight) {
       toRight = false;
@@ -48,4 +48,3 @@ void loop() {
   delay(500);
 
 }
-

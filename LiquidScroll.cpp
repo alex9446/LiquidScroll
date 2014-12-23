@@ -5,15 +5,12 @@
 
 LiquidScroll::LiquidScroll() {
   memText = "";
-  for(byte i; i<16; i++) {
-    fixText[i] = ' ';
-  }
   textPos = 0;
   linePos = 0;
 }
 
 void LiquidScroll::printText(LiquidCrystal lcd) {
-  for(int i=0; i<16; i++) {
+  for(byte i=0; i<16; i++) {
     if((fixText[i] = memText.charAt(textPos+i)) == NULL) {
         fixText[i] = ' ';
     }
@@ -22,8 +19,8 @@ void LiquidScroll::printText(LiquidCrystal lcd) {
   lcd.print(fixText);
 }
 
-void LiquidScroll::splitChar(String text, int pos) {
-  for(int i=0; i<text.length();i++) {
+void LiquidScroll::splitChar(String text, byte pos) {
+  for(byte i=0; i<text.length();i++) {
     if((i+pos)<memText.length()) {
       memText.setCharAt(pos+i, text.charAt(i));
     } else {
@@ -49,10 +46,10 @@ void LiquidScroll::addText(int numb) {
   memText += String(numb);
 }
 
-void LiquidScroll::insTextAt(char text[], int pos) {
+void LiquidScroll::insTextAt(char text[], byte pos) {
   splitChar(text, pos);
 }
-void LiquidScroll::insTextAt(int num, int pos) {
+void LiquidScroll::insTextAt(int num, byte pos) {
   splitChar(String(num), pos);
 }
 
@@ -80,18 +77,11 @@ void LiquidScroll::resetPos() {
 
 void LiquidScroll::setAlign(char lett, int margin) {
   switch(lett) {
-    
     case 'L':
       textPos = -margin;
-      
       break;
     case 'R':
       textPos = ( memText.length() - 16 ) + margin;
-      
-      break;
-    
-    default:
-      
       break;
   }
 }
@@ -105,7 +95,11 @@ String LiquidScroll::getText() {
   return memText;
 }
 
-void LiquidScroll::setLine(int line) {
+int LiquidScroll::getTextPos() {
+  return textPos;
+}
+
+void LiquidScroll::setLine(byte line) {
   linePos = line;
 }
 
@@ -130,11 +124,11 @@ void LiquidScroll::addText(int numb, LiquidCrystal lcd) {
   printText(lcd);
 }
 
-void LiquidScroll::insTextAt(char text[], int pos, LiquidCrystal lcd) {
+void LiquidScroll::insTextAt(char text[], byte pos, LiquidCrystal lcd) {
   insTextAt(text, pos);
   printText(lcd);
 }
-void LiquidScroll::insTextAt(int num, int pos, LiquidCrystal lcd) {
+void LiquidScroll::insTextAt(int num, byte pos, LiquidCrystal lcd) {
   insTextAt(num, pos);
   printText(lcd);
 }
@@ -197,4 +191,3 @@ void LiquidScroll::sleepScrollRight(byte numb, int tSleep, LiquidCrystal lcd) {
     delay(tSleep);
   }
 }
-

@@ -3,7 +3,7 @@
 #define LiquidScroll_h
 
 #include "Arduino.h"
-#include <LiquidCrystal.h>
+#include "LiquidCrystal.h"
 
 class LiquidScroll {
   public:
@@ -13,8 +13,8 @@ class LiquidScroll {
     void setText(int numb);
     void addText(char text[]);
     void addText(int numb);
-    void insTextAt(char text[], int pos);
-    void insTextAt(int numb, int pos);
+    void insTextAt(char text[], byte pos);
+    void insTextAt(int numb, byte pos);
     void clearText();
     void scrollLeft();
     void scrollLeft(byte numb);
@@ -25,15 +25,16 @@ class LiquidScroll {
     void setAlign(char lett);
     // S
     String getText();
-    void setLine(int line);
+    int getTextPos();
+    void setLine(byte line);
     
     // With print
     void setText(char text[], LiquidCrystal lcd);
     void setText(int numb, LiquidCrystal lcd);
     void addText(char text[], LiquidCrystal lcd);
     void addText(int numb, LiquidCrystal lcd);
-    void insTextAt(char text[], int pos, LiquidCrystal lcd);
-    void insTextAt(int numb, int pos, LiquidCrystal lcd);
+    void insTextAt(char text[], byte pos, LiquidCrystal lcd);
+    void insTextAt(int numb, byte pos, LiquidCrystal lcd);
     void clearText(LiquidCrystal lcd);
     void scrollLeft(LiquidCrystal lcd);
     void scrollLeft(byte numb, LiquidCrystal lcd);
@@ -50,10 +51,9 @@ class LiquidScroll {
     String memText;
     char fixText[17];
     int textPos;
-    int linePos;
+    byte linePos;
     void printText(LiquidCrystal lcd);
-    void splitChar(String text, int pos);
+    void splitChar(String text, byte pos);
 };
 
 #endif
-
