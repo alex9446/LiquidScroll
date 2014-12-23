@@ -1,0 +1,39 @@
+#######################################
+# Syntax Coloring Map For LiquidScroll
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+LiquidScroll	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+setText	KEYWORD2
+setText	KEYWORD2
+addText	KEYWORD2
+addText	KEYWORD2
+insTextAt	KEYWORD2
+insTextAt	KEYWORD2
+clearText	KEYWORD2
+scrollLeft	KEYWORD2
+scrollLeft	KEYWORD2
+scrollRight	KEYWORD2
+scrollRight	KEYWORD2
+resetPos	KEYWORD2
+setAlign	KEYWORD2
+setAlign	KEYWORD2
+String getText	KEYWORD2
+getTextPos	KEYWORD2
+setLine	KEYWORD2
+commit	KEYWORD2
+sleepScrollLeft	KEYWORD2
+sleepScrollRight	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
