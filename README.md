@@ -1,4 +1,4 @@
-##Indice
+##Indice ✔️
 [**Installazione manuale**](#installazione-manuale)  
 [**Aggiornamento**](#aggiornamento)  
 [**Installazione automatica**](#installazione-automatica)  
